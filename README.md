@@ -43,6 +43,19 @@ nuri3s-robust-control/
 └── output_fig.mlx           # 결과 시각화
 ```
 
+## PDG+DOB 실험 Gain 설정 (PDG_DOB2 — 불확실한 모델 + DOB)
+
+결과 그래프 (`PDG_DOB2_q_Tracking/`, `PDG_DOB2_Tracking_Result/`) 에 해당하는 Gain 값입니다.
+
+| Gain | Kp (P gain) | Kd (D gain) | 비고 |
+|------|-------------|-------------|------|
+| Gain 1 | 40 (scalar) | 18 (scalar) | |
+| Gain 2 | diag([100 100 100 100 100 100]) | diag([20 20 20 20 20 20]) | |
+| Gain 3 | diag([70 70 40 25 25 18]) | diag([55 55 30 15 15 3]) | 뉴로메카 PD+G 공식 지정값 |
+| Gain 4 | diag([100 100 170 100 170 150]) | diag([20 20 40 20 40 30]) | Gain 2에서 불안정 관절만 조정 |
+| Gain 5 | diag([100 100 100 100 100 100]) | diag([20 20 40 20 40 100]) | |
+| Gain 6 | diag([100 100 100 100 100 100]) | diag([20 20 100 20 100 150]) | |
+
 ## 요구 환경
 
 - MATLAB R2023b 이상
