@@ -1,0 +1,27 @@
+# Simulink build cache
+slprj/
+*.slxc
+
+# MATLAB compiled binaries
+*.mexw64
+*.mexw32
+*.mexa64
+
+# Compiled object/library files
+*.obj
+*.exp
+*.lib
+*.map
+*.mol
+*.manifest
+*.bat
+
+# MATLAB autosave
+*.autosave
+
+# MATLAB temp files
+*.asv
+
+# OS
+.DS_Store
+Thumbs.db
