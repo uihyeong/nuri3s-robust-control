@@ -43,6 +43,14 @@ nuri3s-robust-control/
 └── output_fig.mlx           # 결과 시각화
 ```
 
+## 실험 결과 (PDG+DOB, Gain 3 — 뉴로메카 공식 Gain)
+
+> 불확실한 모델(est2)에 DOB를 적용한 결과. 상단: 관절 위치 추적, 하단: 추적 오차
+
+![PDG+DOB Gain3 Result](images/pdg_dob2_gain3_result.png)
+
+에러가 ±0.05 rad 이내로 수렴하며 DOB가 모델 불확실성을 효과적으로 보상함을 확인.
+
 ## PDG+DOB 실험 Gain 설정 (PDG_DOB2 — 불확실한 모델 + DOB)
 
 결과 그래프 (`PDG_DOB2_q_Tracking/`, `PDG_DOB2_Tracking_Result/`) 에 해당하는 Gain 값입니다.
