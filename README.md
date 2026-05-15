@@ -25,22 +25,42 @@
 
 ```
 nuri3s-robust-control/
-├── Simulink_Model/          # 제어기 Simulink 모델 (.slx)
-│   ├── nuri3s_basic_model.slx
-│   ├── nuri3s_PDG.slx
-│   ├── nuri3s_PDG_DOB_final1.slx
-│   ├── nuri3s_CTC_DOB_final1.slx
-│   └── ...
-├── nuri3s_urdf/             # URDF 모델 및 STL 메시
+├── Simulink_Model/                          # 제어기 Simulink 모델
+│   ├── nuri3s_basic_model.slx               # 기본 동역학 모델
+│   ├── nuri3s_Open_Loop_Model.slx           # Open Loop
+│   ├── nuri3s_feedforward.slx               # Feedforward
+│   ├── nuri3s_PDG.slx                       # PD+G
+│   ├── nuri3s_PDG_uncertain1.slx            # PD+G + 모델 불확실성 (est1)
+│   ├── nuri3s_PDG_uncertain2.slx            # PD+G + 모델 불확실성 (est2)
+│   ├── nuri3s_PDG_DOB_final1.slx            # PD+G + DOB (ver1)
+│   ├── nuri3s_PDG_DOB_final2.slx            # PD+G + DOB (ver2)
+│   ├── nuri3s_computed_torque.slx           # CTC
+│   ├── nuri3s_computed_torque_PD.slx        # CTC (PD 구조)
+│   ├── nuri3s_computed_torque_uncertainty1.slx  # CTC + 모델 불확실성 (est1)
+│   ├── nuri3s_computed_torque_uncertainty2.slx  # CTC + 모델 불확실성 (est2)
+│   ├── nuri3s_CTC_DOB_final1.slx            # CTC + DOB (ver1)
+│   ├── nuri3s_CTC_DOB_final2.slx            # CTC + DOB (ver2)
+│   └── experimental/                        # 실험적 제어기 (미완성)
+│       ├── nuri3s_dob__model_free.slx
+│       └── Time_Delayed_Controller_fixed.slx
+├── nuri3s_urdf/                             # URDF 모델 및 STL 메시
 │   └── nuri3s_matlab/
-│       ├── nuri3s.urdf
-│       └── Nuri3s_0~6.stl
-├── PDG_DOB2_q_Tracking/     # 관절 각도 추적 결과 그래프
-├── PDG_DOB2_Tracking_Result/ # 제어 성능 비교 그래프
-├── initial_official.mlx     # 초기화 및 동역학 파라미터 설정
-├── traj_test.mlx            # 궤적 생성 테스트
-├── traj_test_PDG.mlx        # PDG 기반 궤적 추적 테스트
-└── output_fig.mlx           # 결과 시각화
+│       ├── nuri3s.urdf                      # 실제 로봇 모델
+│       ├── nuri3s_estimated.urdf            # 추정 모델 (est1)
+│       ├── nuri3s_estimated2.urdf           # 추정 모델 (est2, ±10% 조정)
+│       └── Nuri3s_0~6.stl                   # 링크 메시 파일
+├── PDG_DOB2_q_Tracking/                     # PDG+DOB Gain별 관절 추적 그래프 (.fig)
+├── PDG_DOB2_Tracking_Result/                # PDG+DOB Gain별 궤적 추적 결과 (.fig)
+├── images/                                  # README 삽입 이미지
+│   ├── pdg_dob2_gain3_result.png
+│   └── ctc_dob2_gain7_result.png
+├── initial_official.mlx                     # 초기화 및 동역학 파라미터 설정
+├── output_fig.mlx                           # 결과 그래프 시각화
+├── traj_test.mlx                            # 궤적 생성 테스트
+├── traj_test_opl.mlx                        # Open Loop 궤적 테스트
+├── traj_test_PDG.mlx                        # PDG 기반 궤적 추적 테스트
+├── nuri3s_moving.mlx                        # 로봇 동작 테스트
+└── nuri3s_basecircle_q1only.mat             # 원 궤적 기준 데이터
 ```
 
 ## 실험 조건 — 추정 모델(est2)
