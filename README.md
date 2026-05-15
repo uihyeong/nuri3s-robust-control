@@ -43,6 +43,24 @@ nuri3s-robust-control/
 └── output_fig.mlx           # 결과 시각화
 ```
 
+## 실험 조건 — 추정 모델(est2)
+
+PDG+DOB 및 CTC+DOB 결과는 모두 **`robot_est2` (추정 모델)** 를 사용한 실험 결과입니다.
+
+`robot_est2`는 Nuri3s 실제 URDF의 **질량(mass) 및 관성(inertia ixx) 파라미터를 ±10% 조정**하여 생성한 추정 모델로, 실제 로봇에서 발생하는 모델 불확실성(model uncertainty)을 시뮬레이션하기 위해 사용하였습니다.
+
+```matlab
+% initial_official.mlx 내 설정
+urdfPath2 = '...nuri3s_estimated2.urdf';  % mass, inertia ±10% 조정
+robot_est2 = importrobot(urdfPath2);
+robot_est2.DataFormat = 'row';
+robot_est2.Gravity = [0 0 -9.81];
+```
+
+DOB 내부의 역동역학 계산(D̂, Ĥ)은 이 `robot_est2`를 기반으로 수행되며, 실제 모델(`robot`)과의 오차가 외란으로 작용하는 상황에서 DOB가 이를 실시간으로 추정·보상하는 것을 검증합니다.
+
+> **외란 조건**: sine wave, 진폭 0.1, 주파수 10 rad/s
+
 ## 실험 결과
 
 ### PDG+DOB (Gain 3 — 뉴로메카 공식 Gain, 불확실한 모델 + DOB)
